@@ -85,8 +85,8 @@
   home.shellAliases = {
     hm = "home-manager";
 
-    # hmup = "home-manager update";
-    # hmref = "home-manager refresh";
+    hmup = "nix flake update ~/hm";
+    hmsw = "home-manager switch --flake ~/hm";
 
     lg = "lazygit";
   };
