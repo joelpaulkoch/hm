@@ -83,6 +83,8 @@
   };
 
   home.shellAliases = {
+    l = "ls -lAh1";
+
     hm = "home-manager";
 
     hmup = "nix flake update ~/hm";
