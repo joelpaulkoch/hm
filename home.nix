@@ -22,15 +22,39 @@
         { name = "plugin-git"; src = pkgs.fishPlugins.plugin-git.src; }
       ];
     };
+
+    bash = {
+      enable = true;
+      initExtra = ''
+        if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
+        then
+          shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
+          exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
+        fi
+      '';
+    };
+
     git = {
       enable = true;
       userName = "Joel Koch";
       userEmail = "joel@joelkoch.dev";
     };
+
+    helix = {
+      enable = true;
+      defaultEditor = true;
+      settings = {
+        theme = "onedark";
+        editor = {
+          line-number = "relative";
+          lsp.display-messages = true;
+        };
+      };
+      # languages = {};
+    };
   };
 
   home.packages = with pkgs; [
-    helix
     alacritty
     kitty
 
@@ -55,7 +79,16 @@
   };
 
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    # EDITOR = "hx";
+  };
+
+  home.shellAliases = {
+    hm = "home-manager";
+
+    # hmup = "home-manager update";
+    # hmref = "home-manager refresh";
+
+    lg = "lazygit";
   };
 
   # Let Home Manager install and manage itself.
