@@ -46,7 +46,9 @@
       settings = {
         theme = "onedark";
         editor = {
+          auto-save = true;
           line-number = "relative";
+          file-picker.hiden = false;
           lsp.display-messages = true;
         };
       };
@@ -63,6 +65,7 @@
     lazygit
 
     asciinema
+    bat
     bottom
     gh
     htop
