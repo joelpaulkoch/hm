@@ -61,6 +61,18 @@
     neofetch
     fzf
     lazygit
+
+    asciinema
+    bottom
+    gh
+    htop
+    jq
+    ncdu
+    ripgrep
+    tokei
+    tree
+    xclip
+    xh
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
