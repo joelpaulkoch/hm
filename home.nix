@@ -48,11 +48,15 @@
         editor = {
           auto-save = true;
           line-number = "relative";
-          file-picker.hiden = false;
+          file-picker.hidden = false;
           lsp.display-messages = true;
         };
       };
       # languages = {};
+    };
+
+    zellij = {
+      enable = true;
     };
   };
 
@@ -63,17 +67,21 @@
     neofetch
     fzf
     lazygit
+    gitui
 
     asciinema
     bat
     bottom
+    elixir-ls
     gh
     htop
     jq
     ncdu
+    nil
     ripgrep
     tokei
     tree
+    vimPlugins.elixir-tools-nvim
     xclip
     xh
   ];
