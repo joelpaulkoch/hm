@@ -58,6 +58,14 @@
     zellij = {
       enable = true;
     };
+
+    alacritty = {
+      enable = true;
+      settings.shell = {
+        program = "zellij";
+        args = [ "-l" "welcome"];
+      };
+    };
   };
 
   home.packages = with pkgs; [
