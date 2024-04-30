@@ -34,6 +34,12 @@
       '';
     };
 
+    direnv = {
+      enable = true;
+      enableBashIntegration = true;
+      nix-direnv.enable = true;
+    };
+
     git = {
       enable = true;
       userName = "Joel Koch";
