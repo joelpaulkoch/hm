@@ -83,6 +83,7 @@
     lazygit
     gitui
 
+    act
     asciinema
     bat
     bottom
