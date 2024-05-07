@@ -96,7 +96,6 @@
     ripgrep
     tokei
     tree
-    vimPlugins.elixir-tools-nvim
     xclip
     xh
   ];
