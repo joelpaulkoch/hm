@@ -8,9 +8,15 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    next-ls = {
+      url = "github:elixir-tools/next-ls";
+    };
+    ghostty = {
+      url = "git+ssh://git@github.com/mitchellh/ghostty";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs = { nixpkgs, home-manager, next-ls, ghostty, ... }:
     let
       system = "aarch64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -24,6 +30,7 @@
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
+        extraSpecialArgs = {inherit next-ls ghostty;};
       };
     };
 }

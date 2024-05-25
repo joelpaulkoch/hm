@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, next-ls, ghostty, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -98,6 +98,10 @@
     tree
     xclip
     xh
+  ] ++
+  [
+    next-ls.packages.${pkgs.system}.default
+    ghostty.packages.${pkgs.system}.default
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
