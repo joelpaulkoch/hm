@@ -16,21 +16,26 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, next-ls, ghostty, ... }:
-    let
-      system = "aarch64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in {
-      homeConfigurations."joel" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
+  outputs = {
+    nixpkgs,
+    home-manager,
+    next-ls,
+    ghostty,
+    ...
+  }: let
+    system = "aarch64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+  in {
+    homeConfigurations."joel" = home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
 
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
-        modules = [ ./home.nix ];
+      # Specify your home configuration modules here, for example,
+      # the path to your home.nix.
+      modules = [./home.nix];
 
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
-        extraSpecialArgs = {inherit next-ls ghostty;};
-      };
+      # Optionally use extraSpecialArgs
+      # to pass through arguments to home.nix
+      extraSpecialArgs = {inherit next-ls ghostty;};
     };
+  };
 }

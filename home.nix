@@ -1,6 +1,10 @@
-{ config, pkgs, next-ls, ghostty, ... }:
-
 {
+  config,
+  pkgs,
+  next-ls,
+  ghostty,
+  ...
+}: {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "joel";
@@ -18,8 +22,14 @@
         set fish_greeting # Disable greeting
       '';
       plugins = [
-        { name = "tide"; src = pkgs.fishPlugins.tide.src; }
-        { name = "plugin-git"; src = pkgs.fishPlugins.plugin-git.src; }
+        {
+          name = "tide";
+          src = pkgs.fishPlugins.tide.src;
+        }
+        {
+          name = "plugin-git";
+          src = pkgs.fishPlugins.plugin-git.src;
+        }
       ];
     };
 
@@ -69,37 +79,38 @@
       enable = true;
       settings.shell = {
         program = "zellij";
-        args = [ "-l" "welcome"];
+        args = ["-l" "welcome"];
       };
     };
   };
 
-  home.packages = with pkgs; [
-    neofetch
-    fzf
-    lazygit
-    gitui
+  home.packages = with pkgs;
+    [
+      neofetch
+      fzf
+      lazygit
+      gitui
 
-    act
-    alejandra
-    asciinema
-    bat
-    bottom
-    gh
-    htop
-    jq
-    ncdu
-    nil
-    ripgrep
-    tokei
-    tree
-    xclip
-    xh
-  ] ++
-  [
-    next-ls.packages.${pkgs.system}.default
-    ghostty.packages.${pkgs.system}.default
-  ];
+      act
+      alejandra
+      asciinema
+      bat
+      bottom
+      gh
+      htop
+      jq
+      ncdu
+      nil
+      ripgrep
+      tokei
+      tree
+      xclip
+      xh
+    ]
+    ++ [
+      next-ls.packages.${pkgs.system}.default
+      ghostty.packages.${pkgs.system}.default
+    ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
