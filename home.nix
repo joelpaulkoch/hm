@@ -81,6 +81,7 @@
     gitui
 
     act
+    alejandra
     asciinema
     bat
     bottom
