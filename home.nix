@@ -98,6 +98,7 @@
             language-servers = ["nextls"];
             auto-format = true;
             roots = ["mix.exs"];
+            scope = "source.elixir";
           }
           {
             name = "heex";
