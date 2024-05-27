@@ -68,7 +68,44 @@
           lsp.display-messages = true;
         };
       };
-      # languages = {};
+      languages = {
+        language-server = {
+          nextls = {
+            command = "nextls";
+            args = ["--stdio=true"];
+            config = {experimental = {completions = {enable = true;};};};
+            environment = {"NEXTLS_SPITFIRE_ENABLED" = "1";};
+          };
+
+          tailwind-heex = {
+            command = "tailwindcss-language-server";
+            args = ["--stdio"];
+          };
+          nil = {
+            command = "nil";
+            config = {nil.formatting = {command = ["alejandra"];};};
+          };
+        };
+
+        language = [
+          {
+            name = "nix";
+            language-servers = ["nil"];
+            auto-format = true;
+          }
+          {
+            name = "elixir";
+            language-servers = ["nextls"];
+            auto-format = true;
+            roots = ["mix.exs"];
+          }
+          {
+            name = "heex";
+            language-servers = ["nextls"];
+            auto-format = true;
+          }
+        ];
+      };
     };
 
     zellij = {
