@@ -75,9 +75,6 @@
   };
 
   home.packages = with pkgs; [
-    alacritty
-    kitty
-
     neofetch
     fzf
     lazygit
@@ -87,7 +84,6 @@
     asciinema
     bat
     bottom
-    elixir-ls
     gh
     htop
     jq
