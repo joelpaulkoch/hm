@@ -166,7 +166,8 @@
   };
 
   home.sessionVariables = {
-    # EDITOR = "hx";
+    EDITOR = "hx";
+    VISUAL = "hx";
   };
 
   home.shellAliases = {
