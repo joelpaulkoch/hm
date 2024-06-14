@@ -12,7 +12,7 @@
       url = "github:elixir-tools/next-ls";
     };
     ghostty = {
-      url = "git+ssh://git@github.com/mitchellh/ghostty";
+      url = "git+ssh://git@github.com/ghostty-org/ghostty";
     };
   };
 
